@@ -5,6 +5,12 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   def setup
     @base_title="Ruby on Rails Tutorial Sample App"
   end
+
+  test "should get root" do
+    opts= {:controller => 'static_pages', :action => 'home'}
+    assert_recognizes opts, '/'
+    end
+    
   test "should get home" do
     get static_pages_home_url
     assert_response :success
